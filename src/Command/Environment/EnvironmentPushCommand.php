@@ -146,7 +146,8 @@ class EnvironmentPushCommand extends CommandBase
             || ($type === null && !$targetEnvironment && in_array($target, ['main', 'master', 'production', $project->default_branch], true));
         $otherProject = $currentProject && $currentProject->id !== $project->id;
 
-        $codeAlreadyUpToDate = $targetEnvironment && $sourceRevision === $targetEnvironment->head_commit;
+        // $codeAlreadyUpToDate = $targetEnvironment && $sourceRevision === $targetEnvironment->head_commit;
+        $codeAlreadyUpToDate = true;
 
         $projectLabel = $this->api()->getProjectLabel($project, $otherProject ? 'comment' : 'info');
         if ($targetEnvironment) {
